@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>骨骼动画测试</title>
+		<style>
+			html, body { background-color: #666666;}
+			body{
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+			p{
+				color: white;
+				position: absolute;
+				left: 300px;
+				font-size: 40px;
+                font-weight: 700;
+			}
+		</style>
+	</head>
+	<body>
+		<p>奔跑吧！少年</p>
+		 <canvas id="canvas" width="800px" height="600px">
+    抱歉，你的浏览器不支持canvas，建议你使用Chrome浏览器，杜绝360浏览器。</canvas>
+    <!-- 蒙皮资源以img标签的形式引入，也可用js引入-->
+    <img src="img/texture.png" id="xiaoxiaoImg" style="display:none;">
+	</body>
+	<script src="http://alloyteam.github.io/AlloyStick/js/alloystick_v0.4.js"></script>
+	<script src="http://alloyteam.github.io/AlloyStick/data/xx_resource.js"></script>
+    <script>
+    	var demoApp = function(){
+            var canvas = document.getElementById('canvas'),
+            textureImg = document.getElementById('xiaoxiaoImg')
+            var scene = new alloyge.Scene(canvas.getContext('2d'))
+    		var player = new alloysk.Armature('xiaoxiao',textureImg)
+      		
+		    
+		    // 动作快慢 参数：动作状态，速度，初始速度，是否一直执行
+		    player.playTo('run',50,15,true);
+		    // 动画位置
+		    player.setPos(300,300); 
+		    // 不知道啥用
+		    player.setEaseType(true);
+		
+		    scene.addObj(player);
+		    // 启动FPS监听器 (辅助功能 非必须)
+		    alloyge.monitorFPS(scene);
+		    // 开始场景里的动画，并且可以传入callback循环调用
+		    scene.start(); 
+		}
+		window.onload = demoApp;
+    </script>
+</html>
