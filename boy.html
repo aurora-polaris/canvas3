@@ -22,7 +22,7 @@
 	<body>
 		<p>奔跑吧！少年</p>
 		 <canvas id="canvas" width="800px" height="600px">
-    抱歉，你的浏览器不支持canvas，建议你使用Chrome浏览器，杜绝360浏览器。</canvas>
+    抱歉，你的浏览器不支持canvas，建议你使用Chrome浏览器</canvas>
     <!-- 蒙皮资源以img标签的形式引入，也可用js引入-->
     <img src="img/texture.png" id="xiaoxiaoImg" style="display:none;">
 	</body>
@@ -37,6 +37,8 @@
       		
 		    
 		    // 动作快慢 参数：动作状态，速度，初始速度，是否一直执行
+		    // run 奔跑  roll 翻滚  simpleHit 右手扔东西   secondHit  右手打拳   jump_kick  侧踢
+		    // comeon 挑衅   relax 放松  soap 捡肥皂
 		    player.playTo('run',50,15,true);
 		    // 动画位置
 		    player.setPos(300,300); 
